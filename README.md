@@ -165,7 +165,7 @@ The network configuration of the firewall virtual machine was defined as follows
 
 **Outbound NAT** was configured to redirect traffic from the LAN network to the WAN interface, simulating egress from the internal network to the external network through the firewall, as shown in the following image.
 
-<img width="1442" height="184" alt="rules_nat" src="https://github.com/user-attachments/assets/49ffa326-0630-4991-97a9-315a1b267930" />
+<img width="815" height="184" alt="rules_nat" src="https://github.com/user-attachments/assets/49ffa326-0630-4991-97a9-315a1b267930" />
 
 The firewall rules configured for the WAN interface include:
 
@@ -174,7 +174,7 @@ The firewall rules configured for the WAN interface include:
 - A rule that allows external access to the target's web server via port 80/TCP, simulating its public exposure;
 - A rule that allows machines on the internal network to freely access all websites, which are subsequently restricted by the pfBlockerNG and SquidGuard filtering solutions, which block domains such as youporn.com, facebook.com, pornhub.com, and bittorrent.com, processed before this rule.
 
-<img width="1152" height="333" alt="rules_wan" src="https://github.com/user-attachments/assets/6903a8bd-f9bd-4b4f-9c5c-5aeb7c7e8e5d" />
+<img width="815" height="333" alt="rules_wan" src="https://github.com/user-attachments/assets/6903a8bd-f9bd-4b4f-9c5c-5aeb7c7e8e5d" />
 
 For the LAN interface, the rules are configured as shown in the following image, containing by default:
 
@@ -182,7 +182,7 @@ For the LAN interface, the rules are configured as shown in the following image,
 - The `default allow LAN to any` rule, allowing unrestricted outbound traffic from the LAN;
 - The `default allow LAN IPv6 to any` rule, with equivalent behavior for IPv6 traffic.
 
-<img width="1153" height="242" alt="rules_lan" src="https://github.com/user-attachments/assets/d028f47a-7e66-4e3e-9e52-760c1bd751a2" />
+<img width="815" height="242" alt="rules_lan" src="https://github.com/user-attachments/assets/d028f47a-7e66-4e3e-9e52-760c1bd751a2" />
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 
@@ -194,11 +194,11 @@ For the LAN interface, the rules are configured as shown in the following image,
 
 To block websites, an explicit `DROP` rule was added for packets from the internal network destined for banned website IPs (such as `youporn.com`, `pornhub.com`, etc.), obtained from lists in pfBlockerNG.
 
-<img width="1446" height="155" alt="rule_ips_proibidos" src="https://github.com/user-attachments/assets/b0cebe52-fbb3-4343-a828-120b87dd0bef" />
+<img width="815" alt="rule_ips_proibidos" src="https://github.com/user-attachments/assets/b0cebe52-fbb3-4343-a828-120b87dd0bef" />
 
-The package also displays a local blocking page, but does not perform the actual redirection of the request. Since pfBlockerNG does not reflect the content to an external target, it was not useful for the amplification attack. The blocking occurs locally and does not interact with the final destination of the traffic.
+The package also displays a local blocking page, but does not actually redirect the request. Since pfBlockerNG does not reflect the content to an external target, it was not useful for the amplification attack. The blocking occurs locally and does not interact with the final destination of the traffic.
 
-<img width="1293" height="223" alt="bloqueio_pfblockerng" src="https://github.com/user-attachments/assets/3a5106be-4c42-41f2-9d47-06a63efcfaa4" />
+<img width="815" alt="bloqueio_pfblockerng" src="https://github.com/user-attachments/assets/3a5106be-4c42-41f2-9d47-06a63efcfaa4" />
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 
@@ -206,13 +206,13 @@ The package also displays a local blocking page, but does not perform the actual
 ##
 ## pfSense Firewall + Squid + SquidGuard
 
-**Squid** is a web caching proxy, and **SquidGuard** is a URL redirector that complements Squid. Together, they allow user blocking and redirection.aries to a custom block page.
+**Squid** is a web caching proxy, and **SquidGuard** is a URL redirector that complements Squid. Together, they allow blocking and redirecting users to a blocking page.io custom.
 
-SquidGuard was the main component of this experiment because it allows for **real request redirection**, changing the URL and sending the block page to the user. To achieve this, a list of `target categories` was created in SquidGuard for banned sites.
+SquidGuard was the main component of this experiment because it allows for **real request redirection**, changing the URL and sending the blocked page to the user. To achieve this, a list of `target categories` was created in SquidGuard for prohibited sites.
 
-<img width="1058" height="218" alt="bloqueio_squid" src="https://github.com/user-attachments/assets/11a85cd5-acad-4508-8b9c-e31fa68097c7" />
+<img width="815" alt="bloqueio_squid" src="https://github.com/user-attachments/assets/11a85cd5-acad-4508-8b9c-e31fa68097c7" />
 
-<img width="1158" height="463" alt="sites_proibidos" src="https://github.com/user-attachments/assets/0edf68a8-8c05-42c0-a4c4-b563f7638112" />
+<img width="815" alt="sites_proibidos" src="https://github.com/user-attachments/assets/0edf68a8-8c05-42c0-a4c4-b563f7638112" />
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 
@@ -220,7 +220,7 @@ SquidGuard was the main component of this experiment because it allows for **rea
 
 The second firewall used in the experiments was **NGFW FortiGate-VM64**, version 7.2.0 (build 1157, 220331 - GA.F) [^1]. This version was chosen because it appears on the list of vulnerable versions, as identified by the vulnerability **CVE-2022-27491** [^2][^3][^4]. FortiGate NGFWs offer advanced protection for users and data, combining security features with high performance through Fortinet's dedicated processors. They are a well-established and widely adopted commercial solution in the market [^5].
 
-Large institutions, such as the **University of Brasília (UnB)**, actively adopt this solution to ensure the security of their networks. A practical example of this use can be seen in the following image, which shows the blocking page displayed by FortiGate when a user attempts to access a prohibited website. This test was conducted within UnB itself, confirming the institution's effective use of the system. Furthermore, the same page can be viewed on the target machine when accessing the same site in the lab.
+Large institutions, such as the **University of Brasília (UnB)**, actively adopt this solution to ensure the security of their networks. A practical example of this use can be seen in the image below, which shows the blocking page displayed by FortiGate when a user attempts to access a prohibited website. This test was conducted within UnB itself, confirming the institution's effective use of the system. Furthermore, the same page can be viewed on the target machine when accessing the same site in the lab.
 
 <!-- IMAGE HERE - FortiGate blocking page (fortigate_blocking) -->
 
@@ -251,10 +251,10 @@ FortiGate was configured with firewall rules similar to those created in pfSense
 - A rule that allows ICMP (ping) packets originating from external machines (WAN network) to internal machines on the LAN network;
 - A rule that allows outbound traffic from internal machines (LAN network) to the external network (WAN network) through FortiGate.
 
-<img width="515" height="411" alt="firewall_policy_ping_wan_lan" src="https://github.com/user-attachments/assets/8ac08b55-9c57-4d6a-8880-24aa29e2ffa3" />
+<img width="415" alt="firewall_policy_ping_wan_lan" src="https://github.com/user-attachments/assets/8ac08b55-9c57-4d6a-8880-24aa29e2ffa3" />
 
-<img width="515" height="413" alt="firewall_policy_lan_wan" src="https://github.com/user-attachments/assets/8afec0d7-e85d-4bc5-90d7-39353ee42454" />
+<img width="415" alt="firewall_policy_lan_wan" src="https://github.com/user-attachments/assets/8afec0d7-e85d-4bc5-90d7-39353ee42454" />
 
 To block prohibited sites, a **Web Filter** profile was created, which was then applied to the LAN access rules, as shown in the following image.
 
-<img width="663" height="614" alt="sites_proibidos_fortigate" src="https://github.com/user-attachments/assets/1699794d-8796-47ec-bcf8-128ba2b44732" />
+<img width="415" alt="sites_proibidos_fortigate" src="https://github.com/user-attachments/assets/1699794d-8796-47ec-bcf8-128ba2b44732" />
