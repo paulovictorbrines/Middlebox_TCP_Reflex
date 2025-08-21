@@ -86,7 +86,7 @@ VMware Workstation is a desktop hypervisor for Windows and Linux that allows you
 
 ## Lab Setup
 
-![lab_topology](https://github.com/user-attachments/assets/3f935515-db36-42cb-bffc-7888d9db5589)
+![topologia_lab_en-us](https://github.com/user-attachments/assets/66d9ef31-4bda-4469-a288-8d56bc893faf)
 
 The lab environment was divided into three scenarios, all with the same network topology and IP addresses as the image above. Each scenario had three elements: a target, an attacker, and a middlebox (represented by a firewall).
 
