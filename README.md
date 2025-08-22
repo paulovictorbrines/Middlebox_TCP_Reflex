@@ -15,7 +15,7 @@ https://github.com/moloch54/Ddos-TCP-Middlebox-Reflection-Attack
 <br>
 <br>
 
-The code was very useful for conducting laboratory experiments, allowing practical implementation of the concepts in the scientific paper "Weaponizing Middleboxes for TCP Reflected Amplification" by Bock et al. With this technique, it was possible to replicate the Middlebox Reflection technique (b), facilitating the understanding and validation of amplified reflection mechanisms using middleboxes over the TCP protocol. In this technique, the source IP address is spoofed as that of the victim, causing responses from the middleboxes to reach the target directly.
+The code was very useful for conducting laboratory experiments, allowing practical implementation of the concepts in the scientific paper "Weaponizing Middleboxes for TCP Reflected Amplification" by Bock et al. (https://www.usenix.org/conference/usenixsecurity21/presentation/bock). With this technique, it was possible to replicate the Middlebox Reflection technique (b), facilitating the understanding and validation of amplified reflection mechanisms using middleboxes over the TCP protocol. In this technique, the source IP address is spoofed as that of the victim, causing responses from the middleboxes to reach the target directly.
 
 To understand the attack, it is necessary to review the TCP connection establishment process, the Three-Way Handshake, which has three steps:
 
