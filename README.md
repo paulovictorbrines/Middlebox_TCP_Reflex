@@ -9,9 +9,9 @@ This structure enabled a controlled simulation of the attack and a detailed anal
 This section documents the use and configuration of the code available at:
 [https://github.com/moloch54/Ddos-TCP-Middlebox-Reflection-Attack](https://github.com/moloch54/Ddos-TCP-Middlebox-Reflection-Attack)
 
-\<img width="850" alt="tipos\_ataque\_page" src="[https://github.com/user-attachments/assets/895bf494-9bcb-4f47-acd6-c1d6d3c32e39](https://github.com/user-attachments/assets/895bf494-9bcb-4f47-acd6-c1d6d3c32e39)" /\>
-\<br\>
-\<br\>
+<img width="850" alt="tipos_ataque_page" src="[https://github.com/user-attachments/assets/895bf494-9bcb-4f47-acd6-c1d6d3c32e39](https://github.com/user-attachments/assets/895bf494-9bcb-4f47-acd6-c1d6d3c32e39)" />
+<br>
+<br>
 
 The code was highly useful for conducting lab experiments, allowing for the practical implementation of the concepts from the scientific paper "Weaponizing Middleboxes for TCP Reflected Amplification" by Bock et al. With it, we were able to replicate the Middlebox Reflection technique (b), facilitating the understanding and validation of amplified reflection mechanisms using middleboxes over the TCP protocol. In this technique, the source IP address is spoofed to be that of the victim, causing the middlebox responses to reach the target directly.
 
@@ -66,9 +66,9 @@ An example of execution would be:
 sudo python3 mra.py 300 123.4.5.6
 ```
 
-\<img width="550" alt="execucao\_mra" src="[https://github.com/user-attachments/assets/930e1f6b-b577-4971-82d8-1ff4d028afc6](https://github.com/user-attachments/assets/930e1f6b-b577-4971-82d8-1ff4d028afc6)" /\>
-\<br\>
-\<br\>
+<img width="550" alt="execucao_mra" src="[https://github.com/user-attachments/assets/930e1f6b-b577-4971-82d8-1ff4d028afc6](https://github.com/user-attachments/assets/930e1f6b-b577-4971-82d8-1ff4d028afc6)" />
+<br>
+<br>
 
 This will execute the attack for 300 seconds against the IP 123.4.5.6. It is important to note that using this code for unauthorized attacks is illegal and unethical. The intent is solely for educational purposes and testing in controlled environments.
 
@@ -86,9 +86,9 @@ VMware Workstation is a desktop hypervisor for Windows and Linux that allows you
 
 The lab environment was divided into three scenarios, all with the same network topology and IP addresses as shown in the image below. Each scenario had three elements: a target, an attacker, and a middlebox (represented by a firewall).
 
-\<img width="815" alt="topologia\_lab" src="[https://github.com/user-attachments/assets/3f935515-db36-42cb-bffc-7888d9db5589](https://github.com/user-attachments/assets/3f935515-db36-42cb-bffc-7888d9db5589)" /\>
-\<br\>
-\<br\>
+<img width="815" alt="topologia_lab" src="[https://github.com/user-attachments/assets/3f935515-db36-42cb-bffc-7888d9db5589](https://github.com/user-attachments/assets/3f935515-db36-42cb-bffc-7888d9db5589)" />
+<br>
+<br>
 
   * **Scenario 1**: Firewall with pfSense and the pfBlockerNG add-on.
   * **Scenario 2**: Firewall with pfSense and the Squid and SquidGuard software.
@@ -159,9 +159,9 @@ The network configuration of the firewall virtual machine was defined as follows
 
 Outbound NAT was configured to redirect traffic from the LAN network to the WAN interface, simulating the exit of the internal network to the external network through the firewall, as shown in the image below.
 
-\<img width="815" height="184" alt="rules\_nat" src="[https://github.com/user-attachments/assets/49ffa326-0630-4991-97a9-315a1b267930](https://github.com/user-attachments/assets/49ffa326-0630-4991-97a9-315a1b267930)" /\>
-\<br\>
-\<br\>
+<img width="815" height="184" alt="rules_nat" src="[https://github.com/user-attachments/assets/49ffa326-0630-4991-97a9-315a1b267930](https://github.com/user-attachments/assets/49ffa326-0630-4991-97a9-315a1b267930)" />
+<br>
+<br>
 
 The firewall rules configured for the WAN interface include:
 
@@ -170,9 +170,9 @@ The firewall rules configured for the WAN interface include:
   - A rule that allows external access to the target's Web server on port 80/TCP, simulating its public exposure.
   - A rule that allows machines on the internal network to freely access all sites, which are later restricted by the pfBlockerNG and squidGuard filtering solutions, responsible for blocking domains like `youporn.com`, `facebook.com`, `pornhub.com`, and `bittorrent.com`, processed before this rule.
 
-\<img width="815" height="333" alt="rules\_wan" src="[https://github.com/user-attachments/assets/6903a8bd-f9bd-4b4f-9c5c-5aeb7c7e8e5d](https://github.com/user-attachments/assets/6903a8bd-f9bd-4b4f-9c5c-5aeb7c7e8e5d)" /\>
-\<br\>
-\<br\>
+<img width="815" height="333" alt="rules_wan" src="[https://github.com/user-attachments/assets/6903a8bd-f9bd-4b4f-9c5c-5aeb7c7e8e5d](https://github.com/user-attachments/assets/6903a8bd-f9bd-4b4f-9c5c-5aeb7c7e8e5d)" />
+<br>
+<br>
 
 For the LAN interface, the rules are configured as follows, containing by default:
 
@@ -180,9 +180,9 @@ For the LAN interface, the rules are configured as follows, containing by defaul
   - The `default allow LAN to any` rule, allowing unrestricted outbound traffic from the LAN.
   - The `default allow LAN IPv6 to any` rule, with equivalent behavior for IPv6 traffic.
 
-\<img width="815" height="242" alt="rules\_lan" src="[https://github.com/user-attachments/assets/d028f47a-7e66-4e3e-9e52-760c1bd751a2](https://github.com/user-attachments/assets/d028f47a-7e66-4e3e-9e52-760c1bd751a2)" /\>
-\<br\>
-\<br\>
+<img width="815" height="242" alt="rules_lan" src="[https://github.com/user-attachments/assets/d028f47a-7e66-4e3e-9e52-760c1bd751a2](https://github.com/user-attachments/assets/d028f47a-7e66-4e3e-9e52-760c1bd751a2)" />
+<br>
+<br>
 
 #### pfSense Firewall + pfBlockerNG
 
@@ -192,15 +192,15 @@ To block sites, an explicit `DROP` rule was added for packets from the internal 
 
 The package also displays a local blocking page but does not perform the actual redirection of the request. The blocking occurs locally and does not interact with the final destination of the traffic.
 
-\<img width="815" alt="rule\_ips\_proibidos" src="[https://github.com/user-attachments/assets/b0cebe52-fbb3-4343-a828-120b87dd0bef](https://github.com/user-attachments/assets/b0cebe52-fbb3-4343-a828-120b87dd0bef)" /\>
-\<br\>
-\<br\>
+<img width="815" alt="rule_ips_proibidos" src="[https://github.com/user-attachments/assets/b0cebe52-fbb3-4343-a828-120b87dd0bef](https://github.com/user-attachments/assets/b0cebe52-fbb3-4343-a828-120b87dd0bef)" />
+<br>
+<br>
 
 Blocking page for the pfBlockerNG package in pfSense.
 
-\<img width="815" alt="bloqueio\_pfblockerng" src="[https://github.com/user-attachments/assets/3a5106be-4c42-41f2-9d47-06a63efcfaa4](https://github.com/user-attachments/assets/3a5106be-4c42-41f2-9d47-06a63efcfaa4)" /\>
-\<br\>
-\<br\>
+<img width="815" alt="bloqueio_pfblockerng" src="[https://github.com/user-attachments/assets/3a5106be-4c42-41f2-9d47-06a63efcfaa4](https://github.com/user-attachments/assets/3a5106be-4c42-41f2-9d47-06a63efcfaa4)" />
+<br>
+<br>
 
 #### pfSense Firewall + Squid + SquidGuard
 
@@ -208,15 +208,15 @@ Squid is a web caching proxy, and SquidGuard is a URL redirector that complement
 
 SquidGuard allows the actual redirection of the request, changing the URL and sending the blocking page to the user. To do this, a list of `target categories` was created in SquidGuard for the forbidden sites.
 
-\<img width="815" alt="sites\_proibidos" src="[https://github.com/user-attachments/assets/0edf68a8-8c05-42c0-a4c4-b563f7638112](https://github.com/user-attachments/assets/0edf68a8-8c05-42c0-a4c4-b563f7638112)" /\>
-\<br\>
-\<br\>
+<img width="815" alt="sites_proibidos" src="[https://github.com/user-attachments/assets/0edf68a8-8c05-42c0-a4c4-b563f7638112](https://github.com/user-attachments/assets/0edf68a8-8c05-42c0-a4c4-b563f7638112)" />
+<br>
+<br>
 
 Blocking page for the SquidGuard package in pfSense.
 
-\<img width="815" alt="bloqueio\_squid" src="[https://github.com/user-attachments/assets/11a85cd5-acad-4508-8b9c-e31fa68097c7](https://github.com/user-attachments/assets/11a85cd5-acad-4508-8b9c-e31fa68097c7)" /\>
-\<br\>
-\<br\>
+<img width="815" alt="bloqueio_squid" src="[https://github.com/user-attachments/assets/11a85cd5-acad-4508-8b9c-e31fa68097c7](https://github.com/user-attachments/assets/11a85cd5-acad-4508-8b9c-e31fa68097c7)" />
+<br>
+<br>
 
 ### FortiGate Firewall
 
@@ -246,24 +246,24 @@ FortiGate was configured with firewall rules similar to those created in pfSense
 
   - A rule that allows the reception of ICMP (ping) packets originating from external machines (WAN network) to internal machines of the LAN network.
 
-\<img width="415" alt="firewall\_policy\_ping\_wan\_lan" src="[https://github.com/user-attachments/assets/8ac08b55-9c57-4d6a-8880-24aa29e2ffa3](https://github.com/user-attachments/assets/8ac08b55-9c57-4d6a-8880-24aa29e2ffa3)" /\>
-\<br\>
-\<br\>
+<img width="415" alt="firewall_policy_ping_wan_lan" src="[https://github.com/user-attachments/assets/8ac08b55-9c57-4d6a-8880-24aa29e2ffa3](https://github.com/user-attachments/assets/8ac08b55-9c57-4d6a-8880-24aa29e2ffa3)" />
+<br>
+<br>
 
   - A rule that allows outbound traffic from internal machines (LAN network) to the external network (WAN network) through the FortiGate.
 
-\<img width="415" alt="firewall\_policy\_lan\_wan" src="[https://github.com/user-attachments/assets/8afec0d7-e85d-4bc5-90d7-39353ee42454](https://github.com/user-attachments/assets/8afec0d7-e85d-4bc5-90d7-39353ee42454)" /\>
-\<br\>
-\<br\>
+<img width="415" alt="firewall_policy_lan_wan" src="[https://github.com/user-attachments/assets/8afec0d7-e85d-4bc5-90d7-39353ee42454](https://github.com/user-attachments/assets/8afec0d7-e85d-4bc5-90d7-39353ee42454)" />
+<br>
+<br>
 
 To block forbidden sites, a Web Filter profile was created, which was subsequently applied to the LAN access rules, as shown in the image below.
 
-\<img width="415" alt="sites\_proibidos\_fortigate" src="[https://github.com/user-attachments/assets/1699794d-8796-47ec-bcf8-128ba2b44732](https://github.com/user-attachments/assets/1699794d-8796-47ec-bcf8-128ba2b44732)" /\>
-\<br\>
-\<br\>
+<img width="415" alt="sites_proibidos_fortigate" src="[https://github.com/user-attachments/assets/1699794d-8796-47ec-bcf8-128ba2b44732](https://github.com/user-attachments/assets/1699794d-8796-47ec-bcf8-128ba2b44732)" />
+<br>
+<br>
 
 FortiGate's blocking page.
 
-\<img width="815" alt="bloqueio\_fortigate" src="[https://github.com/user-attachments/assets/5d3aaa28-f90c-42c9-a15f-4c211affe61e](https://github.com/user-attachments/assets/5d3aaa28-f90c-42c9-a15f-4c211affe61e)" /\>
-\<br\>
-\<br\>
+<img width="815" alt="bloqueio_fortigate" src="[https://github.com/user-attachments/assets/5d3aaa28-f90c-42c9-a15f-4c211affe61e](https://github.com/user-attachments/assets/5d3aaa28-f90c-42c9-a15f-4c211affe61e)" />
+<br>
+<br>
