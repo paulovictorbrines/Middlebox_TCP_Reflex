@@ -212,7 +212,7 @@ The package also displays a local block page, but does not actually redirect the
 <br>
 <br>
 
-PfSense pfBlockerNG package block page.
+PfSense pfBlockerNG package block page:
 
 <img width="815" alt="bloqueio_pfblockerng" src="https://github.com/user-attachments/assets/3a5106be-4c42-41f2-9d47-06a63efcfaa4" />
 <br>
@@ -232,7 +232,7 @@ SquidGuard allows for actual redirection of the request, changing the URL and se
 <br>
 <br>
 
-SquidGuard package block page in pfSense.
+SquidGuard package block page in pfSense:
 
 <img width="815" alt="bloqueio_squid" src="https://github.com/user-attachments/assets/11a85cd5-acad-4508-8b9c-e31fa68097c7" />
 <br>
@@ -284,7 +284,7 @@ To block prohibited sites, a Web Filter profile was created, which was then appl
 <br>
 <br>
 
-FortiGate blocking page.
+FortiGate blocking page:
 
 <img width="815" alt="bloqueio_fortigate" src="https://github.com/user-attachments/assets/5d3aaa28-f90c-42c9-a15f-4c211affe61e" />
 <br>
